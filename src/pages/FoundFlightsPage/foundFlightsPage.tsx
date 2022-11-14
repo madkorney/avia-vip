@@ -1,9 +1,11 @@
 import FlightsList from 'components/FlightsList/flightsList';
 
-const FoundFlightsPage = () => {
+import { FlightData } from 'data';
+
+const FoundFlightsPage = (props: { flightsList: FlightData[] }) => {
   return (
     <div>
-      <FlightsList />
+      <FlightsList flightsList={props.flightsList} />
     </div>
   );
 };

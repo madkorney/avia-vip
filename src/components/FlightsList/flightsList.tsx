@@ -2,11 +2,13 @@
 
 import FlightInfo from 'components/FlightInfo/flightInfo';
 
-const FlightsList = () => {
+import { FlightData } from 'data';
+
+const FlightsList = (props: { flightsList: FlightData[] }) => {
   return (
     <div className="header-container">
-      <FlightInfo flightNumber={1} />
-      <FlightInfo flightNumber={2} />
+      <FlightInfo flight={props.flightsList[1]} />
+      <FlightInfo flight={props.flightsList[4]} />
     </div>
   );
 };

@@ -1,11 +1,11 @@
-import { CITIES, AIRPORT_CODES, CARRIERS } from './constants';
+import { CITIES, AIRPORT_CODES, CARRIERS, WEEKDAY } from './constants';
 
 export type FlightSearchParams = {
   oneWay: boolean;
-  departureCity: CITIES;
-  arrivalCity: CITIES;
-  departureDate: Date;
-  arrivalDate: Date;
+  departureCity: CITIES | '';
+  arrivalCity: CITIES | '';
+  departureDate: Date | '';
+  arrivalDate?: Date;
 };
 
 export type Airport = {
@@ -17,7 +17,9 @@ export type Airport = {
 export type FlightData = {
   departureAirport: Airport;
   arrivalAirport: Airport;
-  schedule: string;
+  schedule: 'daily' | 'byDate' | 'weekDays';
+  dates?: Date[];
+  weekdays?: WEEKDAY[];
   flightNumber: string;
   departureTime: string;
   arrivelTime: string;
@@ -25,4 +27,22 @@ export type FlightData = {
   priceRUB: number;
   carrier: CARRIERS;
   laggageIncluded: boolean;
+};
+
+export type FlightsSet = {
+  priceRUB: number;
+  carrier: CARRIERS;
+  laggageIncluded: boolean;
+  departureAirport: Airport;
+  arrivalAirport: Airport;
+  availableTimes: {
+    departureTime: string;
+    arrivelTime: string;
+    duration: string;
+  }[];
+};
+
+export type SearchProps = {
+  handler: (params: FlightSearchParams) => void;
+  params: FlightSearchParams;
 };

@@ -1,14 +1,16 @@
 // import './header.scss';
 
+import { FlightData } from 'data';
+
 type FlightInfoProps = {
-  flightNumber: number;
+  flight: FlightData;
 };
 
 const FlightInfo = (props: FlightInfoProps) => {
-  const { flightNumber } = props;
+  const { flight } = props;
   return (
     <div>
-      <p>Flight number : {flightNumber}</p>
+      <p>Flight number : {flight.flightNumber}</p>
     </div>
   );
 };
