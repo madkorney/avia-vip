@@ -1,0 +1,202 @@
+[
+  {
+    "departureAirport": {
+      "IATA": "SVO",
+      "city": "Москва",
+      "name": "Шереметьево"
+    },
+    "arrivalAirport": {
+      "IATA": "ROV",
+      "city": "Ростов на Дону",
+      "name": "Платов"
+    },
+    "schedule": "daily",
+    "flightNumber": "S7-001",
+    "departureTime": "9:20",
+    "arrivelTime": "11:05",
+    "duration": "1:45",
+    "priceRUB": 4150,
+    "carrier": "S7 Airlines",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "SVO",
+      "city": "Москва",
+      "name": "Шереметьево"
+    },
+    "arrivalAirport": {
+      "IATA": "ROV",
+      "city": "Ростов на Дону",
+      "name": "Платов"
+    },
+    "schedule": "daily",
+    "flightNumber": "S7-003",
+    "departureTime": "10:20",
+    "arrivelTime": "12:05",
+    "duration": "1:45",
+    "priceRUB": 4150,
+    "carrier": "S7 Airlines",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "SVO",
+      "city": "Москва",
+      "name": "Шереметьево"
+    },
+    "arrivalAirport": {
+      "IATA": "ROV",
+      "city": "Ростов на Дону",
+      "name": "Платов"
+    },
+    "schedule": "daily",
+    "flightNumber": "S7-005",
+    "departureTime": "11:20",
+    "arrivelTime": "13:05",
+    "duration": "1:45",
+    "priceRUB": 4150,
+    "carrier": "S7 Airlines",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "ROV",
+      "city": "Ростов на Дону",
+      "name": "Платов"
+    },
+    "arrivalAirport": {
+      "IATA": "SVO",
+      "city": "Москва",
+      "name": "Шереметьево"
+    },
+    "schedule": "daily",
+    "flightNumber": "S7-002",
+    "departureTime": "11:30",
+    "arrivelTime": "13:15",
+    "duration": "1:45",
+    "priceRUB": 4150,
+    "carrier": "S7 Airlines",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "ROV",
+      "city": "Ростов на Дону",
+      "name": "Платов"
+    },
+    "arrivalAirport": {
+      "IATA": "SVO",
+      "city": "Москва",
+      "name": "Шереметьево"
+    },
+    "schedule": "daily",
+    "flightNumber": "S7-004",
+    "departureTime": "12:30",
+    "arrivelTime": "14:15",
+    "duration": "1:45",
+    "priceRUB": 4150,
+    "carrier": "S7 Airlines",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "ROV",
+      "city": "Ростов на Дону",
+      "name": "Платов"
+    },
+    "arrivalAirport": {
+      "IATA": "SVO",
+      "city": "Москва",
+      "name": "Шереметьево"
+    },
+    "schedule": "daily",
+    "flightNumber": "S7-006",
+    "departureTime": "13:30",
+    "arrivelTime": "15:15",
+    "duration": "1:45",
+    "priceRUB": 4150,
+    "carrier": "S7 Airlines",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "DME",
+      "city": "Москва",
+      "name": "Домодедово"
+    },
+    "arrivalAirport": {
+      "IATA": "LED",
+      "city": "Санкт-Петербург",
+      "name": "Пулково"
+    },
+    "schedule": "daily",
+    "flightNumber": "SU-013",
+    "departureTime": "8:00",
+    "arrivelTime": "8:55",
+    "duration": "0:55",
+    "priceRUB": 2350,
+    "carrier": "Aeroflot",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "DME",
+      "city": "Москва",
+      "name": "Домодедово"
+    },
+    "arrivalAirport": {
+      "IATA": "LED",
+      "city": "Санкт-Петербург",
+      "name": "Пулково"
+    },
+    "schedule": "daily",
+    "flightNumber": "SU-015",
+    "departureTime": "10:00",
+    "arrivelTime": "10:55",
+    "duration": "0:55",
+    "priceRUB": 2350,
+    "carrier": "Aeroflot",
+    "laggageIncluded": false
+  },
+  {
+    "departureAirport": {
+      "IATA": "LED",
+      "city": "Санкт-Петербург",
+      "name": "Пулково"
+    },
+    "arrivalAirport": {
+      "IATA": "DME",
+      "city": "Москва",
+      "name": "Домодедово"
+    },
+    "schedule": "daily",
+    "flightNumber": "SU-0143",
+    "departureTime": "9:20",
+    "arrivelTime": "11:15",
+    "duration": "0:55",
+    "priceRUB": 2350,
+    "carrier": "Aeroflot",
+    "laggageIncluded": true
+  },
+  {
+    "departureAirport": {
+      "IATA": "LED",
+      "city": "Санкт-Петербург",
+      "name": "Пулково"
+    },
+    "arrivalAirport": {
+      "IATA": "DME",
+      "city": "Москва",
+      "name": "Домодедово"
+    },
+    "schedule": "daily",
+    "flightNumber": "SU-016",
+    "departureTime": "11:20",
+    "arrivelTime": "12:15",
+    "duration": "0:55",
+    "priceRUB": 2350,
+    "carrier": "Aeroflot",
+    "laggageIncluded": true
+  }
+]
