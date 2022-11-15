@@ -2,10 +2,10 @@ import { CITIES, AIRPORT_CODES, CARRIERS, WEEKDAY } from './constants';
 
 export type FlightSearchParams = {
   oneWay: boolean;
-  departureCity: CITIES | '';
-  arrivalCity: CITIES | '';
-  departureDate: Date | '';
-  arrivalDate?: Date;
+  departureCity: CITIES | string;
+  arrivalCity: CITIES | string;
+  departureDate: string;
+  returnDate?: string;
 };
 
 export type Airport = {
@@ -22,7 +22,7 @@ export type FlightData = {
   weekdays?: WEEKDAY[];
   flightNumber: string;
   departureTime: string;
-  arrivelTime: string;
+  arrivalTime: string;
   duration: string;
   priceRUB: number;
   carrier: CARRIERS;
@@ -37,7 +37,7 @@ export type FlightsSet = {
   arrivalAirport: Airport;
   availableTimes: {
     departureTime: string;
-    arrivelTime: string;
+    arrivalTime: string;
     duration: string;
   }[];
 };

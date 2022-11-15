@@ -1,7 +1,7 @@
-import { FlightSearchParams, FlightData } from './types';
+import { FlightSearchParams } from './types';
 
-// export const { REACT_APP_BASENAME } = process.env;
-export const REACT_APP_BASENAME = '/';
+export const { REACT_APP_BASENAME } = process.env;
+// export const REACT_APP_BASENAME = '/';
 export const INIT_SEARCH_PARAMS: FlightSearchParams = {
   oneWay: true,
   departureCity: '',
@@ -38,29 +38,6 @@ export enum WEEKDAY {
   SAT,
 }
 
-export const checkFlightFitsSearch = (flight: FlightData, params: FlightSearchParams): boolean => {
-  const checkDepartureDate =
-    flight.schedule === 'daily' ||
-    (flight.schedule === 'weekDays' &&
-      flight.weekdays!.includes((params.departureDate as Date).getDay())) ||
-    (flight.schedule === 'byDate' && flight.dates!.includes(params.departureDate as Date));
-  const checkDestinationCities =
-    flight.departureAirport.city === params.departureCity &&
-    flight.arrivalAirport.city === params.arrivalCity;
-
-  if (params.oneWay) {
-    return checkDepartureDate && checkDestinationCities;
-  }
-
-  const checkReturnCities =
-    flight.departureAirport.city === params.arrivalCity &&
-    flight.arrivalAirport.city === params.departureCity;
-
-  const checkReturnDate =
-    flight.schedule === 'daily' ||
-    (flight.schedule === 'weekDays' &&
-      flight.weekdays!.includes(new Date(params.departureDate).getDay())) ||
-    (flight.schedule === 'byDate' && flight.dates!.includes(params.departureDate as Date));
-
-  return (checkDepartureDate && checkDestinationCities) || (checkReturnCities && checkReturnDate);
-};
+export enum TICKET_REFUND_OPTIONS {
+  NOT_REFUNDABLE = 'Невозвратный',
+}
