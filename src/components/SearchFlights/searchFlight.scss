@@ -1,0 +1,83 @@
+@import '../../global-styles/variables';
+
+.seacrh-form-container {
+  width: 962px;
+  margin: 68px auto 0 auto;
+  overflow: hidden;
+
+  background-color: $COLOR-PRIMARY-LIGHT-XXL;
+  box-shadow: 0px 0px 14px rgba(112, 121, 153, 0.3);
+  border-radius: 15px;
+
+  .inputs-container {
+    height: 93px;
+    background-color: $COLOR-SECONDARY-LIGHT;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    padding-left: 25px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+
+    .dline {
+      width: 200px;
+      height: 0;
+      border: 1px dashed $COLOR-PRIMARY-LIGHT-XXL;
+      position: absolute;
+      top: 52px;
+      right: 100px;
+      z-index: 1;
+
+    }
+    label {
+      color: $COLOR-PRIMARY-LIGHT-XXL;
+      font-size: 11px;
+      font-weight: 400;
+      z-index: 11;
+    }
+
+    input[type="text"] {
+      display: block;
+      width: 196px;
+      height: 40px;
+      padding-left: 12px;
+      &.date-input-active,
+      &.date-input-inactive {
+        width: 174px;
+        padding-left: 34px;
+      }
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 10px;
+      border: none;
+      overflow: hidden;
+      outline: none;
+      z-index: 11;
+      color: $COLOR-PRIMARY;
+      background-color: $COLOR-PRIMARY-LIGHT-XXL;
+
+      &::placeholder {
+        color: $COLOR-PRIMARY-LIGHT;
+      }
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 30px;
+    height: 93px;
+  }
+}
+
+.date-input-active {
+  background: url("/assets/icons/calendar1.png") no-repeat left;
+  background-size: 34px;
+}
+
+.date-input-inactive {
+  background: url("/assets/icons/calendar2.png") no-repeat left;
+  background-size: 34px;
+}
