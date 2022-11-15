@@ -1,0 +1,17 @@
+@import '../../../../global-styles/variables';
+
+.refund-option-container {
+  background-color: $COLOR-SECONDARY-LIGHT-XL;
+  border-radius: 15px 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 132px;
+  height: 26px;
+  font-weight: 600;
+  font-size: 12px;
+  color: $COLOR-PRIMARY-LIGHT-XXL;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
