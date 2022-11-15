@@ -1,11 +1,11 @@
 import FlightsList from 'components/FlightsList/flightsList';
 
-import { FlightData } from 'data';
+import { FlightSearchParams } from 'data';
 
-const FoundFlightsPage = (props: { flightsList: FlightData[] }) => {
+const FoundFlightsPage = (props: { params: FlightSearchParams }) => {
   return (
     <div>
-      <FlightsList flightsList={props.flightsList} />
+      <FlightsList searchParams={props.params} />
     </div>
   );
 };
