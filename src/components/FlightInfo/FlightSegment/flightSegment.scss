@@ -1,0 +1,51 @@
+@import '../../../global-styles/variables';
+
+.flight-segment-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .flightset-info {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    height: 120px;
+  }
+}
+
+
+.time-buttons {
+  margin-left: 160px;
+  margin-bottom: 29px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  .btn-time {
+    width: 107px;
+    height: 34px;
+    border: 1px solid $COLOR-PRIMARY-LIGHT;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $COLOR-PRIMARY;
+    text-align: center;
+    background-color: $COLOR-PRIMARY-LIGHT-XXL;
+
+    span {
+      font-size: 18px;
+    }
+    &:hover {
+      cursor: pointer;
+      color: $COLOR-PRIMARY-DARK;
+
+    }
+
+    &.active {
+      background-color: #DDE3EE;
+      color: $COLOR-PRIMARY-DARK;
+      border: none;
+      transform: scale(1.2);
+    }
+  }
+}
