@@ -1,0 +1,11 @@
+@import '../../global-styles/variables';
+
+.not-found {
+  border: 1px solid $COLOR-PRIMARY-LIGHT;
+  color: $COLOR-PRIMARY;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 40px;
+  text-align: center;
+  max-width: 980px;
+}
