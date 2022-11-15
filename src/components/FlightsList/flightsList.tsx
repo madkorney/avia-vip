@@ -1,14 +1,32 @@
-// import './header.scss';
-
 import FlightInfo from 'components/FlightInfo/flightInfo';
 
-import { FlightData } from 'data';
+import {
+  FlightSearchParams,
+  mockFlightOneWay,
+  mockFlightTwoWayA,
+  mockFlightTwoWayBcorrect,
+} from 'data';
 
-const FlightsList = (props: { flightsList: FlightData[] }) => {
+type FlightListPros = {
+  searchParams: FlightSearchParams;
+};
+
+const FlightsList = (props: FlightListPros) => {
+  const { searchParams } = props;
+  const flightTo = searchParams.oneWay ? mockFlightOneWay : mockFlightTwoWayA;
+  const flightBack = mockFlightTwoWayBcorrect;
+
   return (
     <div className="header-container">
-      <FlightInfo flight={props.flightsList[1]} />
-      <FlightInfo flight={props.flightsList[4]} />
+      <FlightInfo
+        oneWay={searchParams.oneWay}
+        flightsSetTo={flightTo}
+        flightsSetBack={flightBack}
+        dateTo={searchParams.departureDate}
+        dateBack={searchParams.returnDate}
+        departureCity={searchParams.departureCity}
+        arrivalCity={searchParams.arrivalCity}
+      />
     </div>
   );
 };
