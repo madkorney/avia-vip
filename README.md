@@ -1,16 +1,18 @@
 # Getting Started with Create React App
 
-avia ticket forms - test task for vipservice
+avia tickets search forms - test task for vipservice.
 
+PR: [https://github.com/madkorney/avia-vip/pull/1](https://github.com/madkorney/avia-vip/pull/1)
+deploy: [https://madkorney.github.io/avia-vip/avia](https://madkorney.github.io/avia-vip/avia)
+repo: [https://github.com/madkorney/avia-vip/tree/dev-fr](https://github.com/madkorney/avia-vip/tree/dev-fr)
 
+tech stack: react, create-react-app, typescript, react-router, no global state management, minor MUI components usage.
+note - i tried to build some mock fligths data but that was not requested in FR, so i reverted it just to mock the data from figma layout.
 
-
-
-
-
-
-
-
+implemented :
+- [x] form for enter departure and arrival cities and dates of departure and of return flights with basic validation (if value exist/if dates are in valid format)
+- [x] result on form submit - "found fligths" rendered depending if it is a one-way flight or two-way.  Cities names are shown as entered by user, so it will not correspond to airports codes.  some fligths duration were adjusted to demonstrate it is updating in the component
+- [x] style is implemented accrding to figma layout which is a litlle bit inconsistent in some dimensions, so it's not PixelPerfect'ed
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
