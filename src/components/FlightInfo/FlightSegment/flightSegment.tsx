@@ -50,7 +50,7 @@ const FlightSegment = (props: FlightSegmentProps) => {
           city={arrivalCity}
           date={date}
         />
-        <LuggageIcon luggageIncluded={flightsSet.laggageIncluded} />
+        <LuggageIcon luggageIncluded={flightsSet.luggageIncluded} />
       </div>
       {flightsSet.availableTimes.length > 1 ? (
         <div className="time-buttons">

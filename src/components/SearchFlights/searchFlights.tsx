@@ -108,10 +108,6 @@ const SearchFlights = (props: SearchProps) => {
           Найти билеты
         </Button>
       </div>
-
-      {/* <Button variant="contained" disabled>
-        Disabled
-      </Button> */}
     </div>
   );
 };

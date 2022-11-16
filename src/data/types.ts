@@ -32,7 +32,7 @@ export type FlightData = {
 export type FlightsSet = {
   priceRUB: number;
   carrier: CARRIERS;
-  laggageIncluded: boolean;
+  luggageIncluded: boolean;
   departureAirport: Airport;
   arrivalAirport: Airport;
   availableTimes: {

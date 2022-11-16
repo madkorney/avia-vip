@@ -1,7 +1,8 @@
 import { FlightSearchParams } from './types';
 
-export const { REACT_APP_BASENAME } = process.env;
-// export const REACT_APP_BASENAME = '/';
+export const { REACT_APP_BASENAME } = process.env; // select for build, path to deploy root is set in .env
+// export const REACT_APP_BASENAME = '/';  // select for dev run on localhost
+
 export const INIT_SEARCH_PARAMS: FlightSearchParams = {
   oneWay: true,
   departureCity: '',

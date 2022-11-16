@@ -1,5 +1,5 @@
 import PriceTag from './PrceTag';
-import FileSegment from './FlightSegment';
+import FlightSegment from './FlightSegment';
 
 import { FlightsSet } from 'data';
 
@@ -22,7 +22,7 @@ const FlightInfo = (props: FlightInfoProps) => {
   return (
     <div className="flightset-container">
       <div className="flight-segments-container">
-        <FileSegment
+        <FlightSegment
           flightsSet={flightsSetTo}
           date={dateTo}
           departureCity={departureCity}
@@ -32,7 +32,7 @@ const FlightInfo = (props: FlightInfoProps) => {
         {oneWay ? null : (
           <Fragment>
             <div className="dot-line"></div>
-            <FileSegment
+            <FlightSegment
               flightsSet={flightsSetBack!}
               date={dateBack!}
               departureCity={arrivalCity}
