@@ -6,11 +6,14 @@ type FlightDurationAndIATAProps = {
   duration: string;
 };
 
-const FlightDurationAndIATAs = (props: FlightDurationAndIATAProps) => {
-  const { departureLocation, arrivalLocation, duration } = props;
+const FlightDurationAndIATAs = ({
+  departureLocation,
+  arrivalLocation,
+  duration,
+}: FlightDurationAndIATAProps) => {
   const durationHours = Number(duration.split(':')[0]);
   const durationMinutes = Number(duration.split(':')[1]);
-  const durationOutputString = `В пути ${durationHours} ч ${durationMinutes} мин`;
+  const durationFormatted = `В пути ${durationHours} ч ${durationMinutes} мин`;
 
   return (
     <div className="flight-duration-direction-container">
@@ -19,11 +22,11 @@ const FlightDurationAndIATAs = (props: FlightDurationAndIATAProps) => {
         <div className="flight-direction-location">{arrivalLocation}</div>
       </div>
       <div className="hline">
-        <div className="dot"></div>
-        <div className="line"></div>
-        <div className="dot"></div>
+        <div className="dot" />
+        <div className="line" />
+        <div className="dot" />
       </div>
-      <div className="flight-duration">{durationOutputString}</div>
+      <div className="flight-duration">{durationFormatted}</div>
     </div>
   );
 };

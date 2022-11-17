@@ -4,8 +4,7 @@ type PriceTagProps = {
   amount: number;
 };
 
-const PriceTag = (props: PriceTagProps) => {
-  const { amount } = props;
+const PriceTag = ({ amount }: PriceTagProps) => {
   return (
     <div className="price-container">
       {new Intl.NumberFormat('ru-RU', {

@@ -4,7 +4,6 @@ import FlightSegment from './FlightSegment';
 import { FlightsSet } from 'data';
 
 import './flightInfo.scss';
-import { Fragment } from 'react';
 
 type FlightInfoProps = {
   oneWay: boolean;
@@ -16,9 +15,19 @@ type FlightInfoProps = {
   arrivalCity: string;
 };
 
-const FlightInfo = (props: FlightInfoProps) => {
-  const { oneWay, flightsSetTo, flightsSetBack, dateTo, dateBack, departureCity, arrivalCity } =
-    props;
+const FlightInfo = ({
+  oneWay,
+  flightsSetTo,
+  flightsSetBack,
+  dateTo,
+  dateBack,
+  departureCity,
+  arrivalCity,
+}: FlightInfoProps) => {
+  const priceAmount = oneWay
+    ? flightsSetTo.priceRUB
+    : flightsSetTo.priceRUB + flightsSetBack!.priceRUB;
+
   return (
     <div className="flightset-container">
       <div className="flight-segments-container">
@@ -29,23 +38,20 @@ const FlightInfo = (props: FlightInfoProps) => {
           arrivalCity={arrivalCity}
         />
 
-        {oneWay ? null : (
-          <Fragment>
-            <div className="dot-line"></div>
+        {!oneWay ? (
+          <>
+            <div className="dot-line" />
             <FlightSegment
               flightsSet={flightsSetBack!}
               date={dateBack!}
               departureCity={arrivalCity}
               arrivalCity={departureCity}
             />
-          </Fragment>
-        )}
+          </>
+        ) : null}
       </div>
-      {oneWay ? (
-        <PriceTag amount={flightsSetTo.priceRUB} />
-      ) : (
-        <PriceTag amount={flightsSetTo.priceRUB + flightsSetBack!.priceRUB} />
-      )}
+
+      <PriceTag amount={priceAmount} />
     </div>
   );
 };

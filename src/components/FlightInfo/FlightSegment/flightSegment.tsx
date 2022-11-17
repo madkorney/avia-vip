@@ -9,6 +9,7 @@ import LuggageIcon from './LuggageIcon';
 import { FlightsSet, TICKET_REFUND_OPTIONS } from 'data';
 
 import './flightSegment.scss';
+import TimeOptionButton from './TimeOptionButton';
 
 type FlightSegmentProps = {
   flightsSet: FlightsSet;
@@ -17,10 +18,10 @@ type FlightSegmentProps = {
   arrivalCity: string;
 };
 
-const FlightSegment = (props: FlightSegmentProps) => {
-  const { flightsSet, date, departureCity, arrivalCity } = props;
+const FlightSegment = ({ flightsSet, date, departureCity, arrivalCity }: FlightSegmentProps) => {
   const [selectedTimeIndex, setSelectedTimeIndex] = useState(0);
   const [selectedDuration, setSelectedDuration] = useState(flightsSet.availableTimes[0].duration);
+  const areTimeOptionsAvailable = flightsSet.availableTimes.length > 1;
 
   const handleTimeSelect = (btnIndex: number) => {
     setSelectedTimeIndex(btnIndex);
@@ -29,7 +30,8 @@ const FlightSegment = (props: FlightSegmentProps) => {
 
   return (
     <div className="flight-segment-container">
-      <TicketOption option={TICKET_REFUND_OPTIONS.NOT_REFUNDABLE} />
+      <TicketOption refundOption={TICKET_REFUND_OPTIONS.NOT_REFUNDABLE} />
+
       <div className="flightset-info">
         <CarrierLogo carrier={flightsSet.carrier} />
 
@@ -50,23 +52,23 @@ const FlightSegment = (props: FlightSegmentProps) => {
           city={arrivalCity}
           date={date}
         />
+
         <LuggageIcon luggageIncluded={flightsSet.luggageIncluded} />
       </div>
-      {flightsSet.availableTimes.length > 1 ? (
+
+      {areTimeOptionsAvailable ? (
         <div className="time-buttons">
-          {flightsSet.availableTimes.map((times, index) => {
+          {flightsSet.availableTimes.map((timeOptions, index) => {
             return (
-              <button
-                className={`btn-time ${index === selectedTimeIndex ? 'active' : ''}`}
+              <TimeOptionButton
                 key={index}
-                onClick={() => {
+                className={`btn-time ${index === selectedTimeIndex ? 'active' : ''}`}
+                departureTime={timeOptions.departureTime}
+                arrivalTime={timeOptions.arrivalTime}
+                handleClick={() => {
                   handleTimeSelect(index);
                 }}
-              >
-                <span className="departure-time">{times.departureTime.padStart(5, '0')}</span>
-                {` - `}
-                {times.arrivalTime.padStart(5, '0')}
-              </button>
+              />
             );
           })}
         </div>

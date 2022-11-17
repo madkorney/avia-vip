@@ -1,16 +1,12 @@
-import React, { Fragment } from 'react';
-
 import SearchFlights from 'components/SearchFlights/searchFlights';
 
 import { SearchProps } from 'data';
 
-const SearchFlightsPage = (props: SearchProps) => {
-  const { params, handler } = props;
-
+const SearchFlightsPage = ({ params, handleFormSearch }: SearchProps) => {
   return (
-    <Fragment>
-      <SearchFlights handler={handler} params={params} />
-    </Fragment>
+    <>
+      <SearchFlights handleFormSearch={handleFormSearch} params={params} />
+    </>
   );
 };
 

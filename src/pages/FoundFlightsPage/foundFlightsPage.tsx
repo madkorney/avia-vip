@@ -1,11 +1,13 @@
 import FlightsList from 'components/FlightsList/flightsList';
 
 import { FlightSearchParams } from 'data';
+import { Link } from 'react-router-dom';
 
-const FoundFlightsPage = (props: { params: FlightSearchParams }) => {
+const FoundFlightsPage = ({ params }: { params: FlightSearchParams }) => {
   return (
     <div>
-      <FlightsList searchParams={props.params} />
+      <Link to={'/avia'}>назад</Link>
+      <FlightsList searchParams={params} />
     </div>
   );
 };

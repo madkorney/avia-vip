@@ -12,7 +12,7 @@ import './App.scss';
 const App = () => {
   const [searchParams, setSearchParams] = useState<FlightSearchParams>(INIT_SEARCH_PARAMS);
 
-  const searchHandler = (params: FlightSearchParams) => {
+  const handleFormSearch = (params: FlightSearchParams) => {
     setSearchParams(() => {
       return params;
     });
@@ -23,7 +23,7 @@ const App = () => {
       <Routes>
         <Route
           path="/avia"
-          element={<SearchFlightsPage handler={searchHandler} params={searchParams} />}
+          element={<SearchFlightsPage handleFormSearch={handleFormSearch} params={searchParams} />}
         />
         <Route path="/avia/info" element={<FoundFlightsPage params={searchParams} />} />
         <Route path="*" element={<NotFoundPage />} />

@@ -1,9 +1,13 @@
 import './ticketOption.scss';
 
-const TicketOptions = (props: { option: string }) => {
+type TicketOptionsProps = {
+  refundOption: string;
+};
+
+const TicketOptions = ({ refundOption }: TicketOptionsProps) => {
   return (
     <div className="refund-option-container">
-      <div>{props.option}</div>
+      <div>{refundOption}</div>
     </div>
   );
 };

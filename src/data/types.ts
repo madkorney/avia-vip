@@ -43,6 +43,16 @@ export type FlightsSet = {
 };
 
 export type SearchProps = {
-  handler: (params: FlightSearchParams) => void;
+  handleFormSearch: (params: FlightSearchParams) => void;
   params: FlightSearchParams;
+};
+
+export type InputTextProps = {
+  className?: string;
+  label: string;
+  id: string;
+  placeholder: string;
+  required: boolean;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };

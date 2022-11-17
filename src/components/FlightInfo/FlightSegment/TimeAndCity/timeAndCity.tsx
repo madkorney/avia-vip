@@ -6,8 +6,7 @@ type TimeAndCityProps = {
   date: string;
 };
 
-const TimeAndCity = (props: TimeAndCityProps) => {
-  const { time, city, date } = props;
+const TimeAndCity = ({ time, city, date }: TimeAndCityProps) => {
   return (
     <div className="time-city-container">
       <div className="time">{time}</div>

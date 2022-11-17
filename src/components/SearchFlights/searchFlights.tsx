@@ -1,106 +1,107 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
+import InputDepartureCity from './InputDepartureCity';
+import InputArrivalCity from './InputArrivalCity';
+import InputReturnDate from './InputReturnDate';
+import InputDepartureDate from './InputDepartureDate';
 
-import { SearchProps, FlightSearchParams } from 'data';
+import { SearchProps, FlightSearchParams, validateForm } from 'data';
+
 import './searchFlight.scss';
 
-const SearchFlights = (props: SearchProps) => {
-  const [cityFrom, setCityFrom] = useState('');
-  const [cityTo, setCityTo] = useState('');
-  const [dateTo, setDateTo] = useState(new Date().toLocaleDateString('ru-RU'));
-  const [dateBack, setDateBack] = useState('');
+const SearchFlights = ({ handleFormSearch }: SearchProps) => {
+  const [departureCity, setDepartureCity] = useState('');
+  const [arrivalCity, setArrivalCity] = useState('');
+  const [departureDate, setDepartureDate] = useState(new Date().toLocaleDateString('ru-RU'));
+  const [returnDate, setReturnDate] = useState('');
   const [isValidated, setIsValidated] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    let validated = true;
-    validated = validated && !!cityTo;
-    validated = validated && !!cityFrom;
-    validated = validated && !!dateTo;
-    validated = validated && !!dateTo.match(/[0-9]{2}\.[0-9]{2}\.[0-9]{4}$/i);
-    if (dateBack) {
-      validated = validated && !!dateBack.match(/[0-9]{2}\.[0-9]{2}\.[0-9]{4}$/i);
-    }
+    const validated = validateForm({
+      cityTo: arrivalCity,
+      cityFrom: departureCity,
+      dateTo: departureDate,
+      dateBack: returnDate,
+    });
     setIsValidated(validated);
-  }, [cityTo, cityFrom, dateTo, dateBack]);
+  }, [arrivalCity, departureCity, departureDate, returnDate]);
 
   const handleClick = () => {
     const newParams: FlightSearchParams = {
-      oneWay: !dateBack,
-      departureCity: cityFrom,
-      arrivalCity: cityTo,
-      departureDate: dateTo,
+      oneWay: !returnDate,
+      departureCity: departureCity,
+      arrivalCity: arrivalCity,
+      departureDate: departureDate,
     };
-    if (dateBack) {
-      newParams.returnDate = dateBack;
+    if (returnDate) {
+      newParams.returnDate = returnDate;
     }
-    props.handler(newParams);
+
+    handleFormSearch(newParams);
     navigate('info');
+  };
+
+  const handleDepartureCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDepartureCity(e.target.value);
+  };
+
+  const handleArrivalCityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setArrivalCity(e.target.value);
+  };
+
+  const handleDepartureDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDepartureDate(e.target.value);
+  };
+
+  const handleReturnDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setReturnDate(e.target.value);
   };
 
   return (
     <div className="seacrh-form-container">
       <form className="inputs-container">
-        <label>
-          Откуда
-          <input
-            type="text"
-            name="city-from"
-            id="city-from"
-            placeholder="Город вылета"
-            required
-            value={cityFrom}
-            onChange={(e) => {
-              setCityFrom(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Куда
-          <input
-            type="text"
-            name="city-to"
-            id="city-to"
-            placeholder="Город прилета"
-            required
-            value={cityTo}
-            onChange={(e) => {
-              setCityTo(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Tуда
-          <input
-            className={dateTo ? 'date-input-active' : 'date-input-inactive'}
-            type="text"
-            name="date-to"
-            id="date-to"
-            placeholder="дд.мм.гг"
-            required
-            value={dateTo}
-            onChange={(e) => {
-              setDateTo(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Обратно
-          <input
-            className={dateBack ? 'date-input-active' : 'date-input-inactive'}
-            type="text"
-            name="date-back"
-            id="date-back"
-            placeholder="дд.мм.гг"
-            value={dateBack}
-            onChange={(e) => {
-              setDateBack(e.target.value);
-            }}
-          />
-        </label>
-        <div className="dline"></div>
+        <InputDepartureCity
+          label={'Откуда'}
+          id={'departure-city'}
+          placeholder={'Город вылета'}
+          required
+          value={departureCity}
+          handleChange={handleDepartureCityChange}
+        />
+
+        <InputArrivalCity
+          label={'Куда'}
+          id={'arrival-city'}
+          placeholder={'Город прилета'}
+          required
+          value={arrivalCity}
+          handleChange={handleArrivalCityChange}
+        />
+
+        <InputDepartureDate
+          className={departureDate ? 'date-input-active' : 'date-input-inactive'}
+          label={'Tуда'}
+          id={'departure-date'}
+          placeholder={'дд.мм.гг'}
+          required
+          value={departureDate}
+          handleChange={handleDepartureDateChange}
+        />
+
+        <InputReturnDate
+          className={returnDate ? 'date-input-active' : 'date-input-inactive'}
+          label={'Обратно'}
+          id={'return-date'}
+          placeholder={'дд.мм.гг'}
+          required
+          value={returnDate}
+          handleChange={handleReturnDate}
+        />
+
+        <div className="dline" />
       </form>
 
       <div className="btn-container">

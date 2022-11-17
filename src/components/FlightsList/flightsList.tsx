@@ -11,8 +11,7 @@ type FlightListPros = {
   searchParams: FlightSearchParams;
 };
 
-const FlightsList = (props: FlightListPros) => {
-  const { searchParams } = props;
+const FlightsList = ({ searchParams }: FlightListPros) => {
   const flightTo = searchParams.oneWay ? mockFlightOneWay : mockFlightTwoWayA;
   const flightBack = mockFlightTwoWayBcorrect;
 
