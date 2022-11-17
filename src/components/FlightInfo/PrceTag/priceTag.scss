@@ -1,0 +1,12 @@
+@import '../../../global-styles/variables';
+
+.price-container {
+  width: 200px;
+  color: $COLOR-PRIMARY-DARK;
+  font-weight: 700;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #DDE3EE;
+}
